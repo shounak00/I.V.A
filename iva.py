@@ -7,6 +7,8 @@ import webbrowser
 import os
 import smtplib
 
+
+
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 #print(voices[1].id)
@@ -36,7 +38,7 @@ def takeCommand():
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening...")
-        r.pause_threshold = 1
+        r.pause_threshold = 0.8
         audio = r.listen(source)
 
     try:
@@ -44,23 +46,21 @@ def takeCommand():
         query = r.recognize_google(audio, language='en-in')
         print(f"User said: {query}\n")
 
-    except Exception as e:
-        # print(e)    
-        print("Say that again please...")  
-        return "None"
+    except:
+        return "none"
+    
     return query
 
 
 
-'''
 def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
-    server.login('youremail@gmail.com', 'your-password')
-    server.sendmail('youremail@gmail.com', to, content)
+    server.login('al.22.07.96@gmail.com', 'H@R@MJ@D@')
+    server.sendmail('al.22.07.96@gmail.com', to, content)
     server.close()
-''' 
+ 
 
 if __name__ == "__main__":
     
@@ -73,10 +73,10 @@ if __name__ == "__main__":
         if 'wikipedia' in query:
             speak('Searching Wikipedia...')
             query = query.replace("wikipedia", "")
-            results = wikipedia.summary(query, sentences=2)
+            results = wikipedia.summary(query, sentences=3)
             speak("According to Wikipedia")
             #print(results)
-            speak(results)
+            speak(results) 
 
         if 'open youtube' in query:
             chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
@@ -112,21 +112,46 @@ if __name__ == "__main__":
             print(songs)    
             os.startfile(os.path.join(music_dir, songs[0]))
 
-        elif 'the time' in query:
+        elif 'time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")    
-            speak("Sir, the time is {strTime}")
+            speak("Sir, the time is ")
+            speak(strTime)
+        
+        elif 'email' in query or "help me send a mail" in query:
+            try:
+                speak("What should I say?")
+                content = takeCommand().r.pause_threshold=10
+                speak("Whom you want to send? or You just want to perform Test mail")
+                to= takeCommand()
+                if "test mail" in to:
+                    to1= "shounak00@gmail.com"
+                    sendEmail(to1, content)
+                    speak("Email has been sent!")
+            except Exception as e:
+                #print(e)
+                speak("Sorry sir, My System failed to complete the task. Please reinitiate instructions again.")
 
+        
         elif 'open code blocks' in query:
             codebPath = 'C:\\Program Files (x86)\\CodeBlocks\\codeblocks.exe'
             os.startfile(codebPath)  
+                
+        elif 'open Fifa' in query:
+            codebPath = 'E:\\Fifa19\\FIFA19.exe'
+            os.startfile(codebPath)  
+        
+        elif "who are you" in query or "define yourself" in query or "introduce yourself" in query: 
+            speak("I am Iva. Your Integrated  Virtual  Assistant, I.V.A. I am here to make your life easier. You can command me to perform various tasks ")
+  
+        elif "who made you" in query or "created you" in query: 
+            speak("Sir, Stop being stupid! You are presenting me for this project.. Obviously u made me.")
+        
+        elif "thank you" in query:
+            speak("Your welcome,Sir.")
 
-        if 'terminate' in query:
+        
+        if 'terminate' in query or 'exit' in query or 'quit' in query or 'your job is done' in query:
             exit()
-        if 'quit' in query:
-            exit()
         
         
         
-
-
-
