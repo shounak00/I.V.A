@@ -6,6 +6,12 @@ import googlesearch
 import webbrowser
 import os
 import smtplib
+import requests
+import sys
+import re
+import subprocess
+import json
+import random
 
 
 
@@ -30,7 +36,7 @@ def wishMe():
         speak("Good Afternoon!")
     else:
         speak("Good Evening!")
-    speak("Hello Sir, I am IVA. How can I help you?")   
+    speak("Sir, I am IVA. How can I help you?")   
 
 def takeCommand():
     #It takes microphone input from the user and returns string output
@@ -70,25 +76,74 @@ if __name__ == "__main__":
         query = takeCommand().lower()
         
         #logic for executing tasks based on query
-        if 'wikipedia' in query:
-            speak('Searching Wikipedia...')
+        if 'wikipedia' in query or "tell" in query:
             query = query.replace("wikipedia", "")
             results = wikipedia.summary(query, sentences=3)
-            speak("According to Wikipedia")
+            #speak("According to Wikipedia")
             #print(results)
             speak(results) 
 
-        if 'open youtube' in query:
+        if 'open youtube' in query or 'youtube' in query:
             chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+            speak("Opening Youtbe")
             webbrowser.get(chrome_path).open("youtube.com")
 
-        if 'open google' in query:
+        if 'open google' in query or 'google' in query:
             chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+            speak("Opening Google")
             webbrowser.get(chrome_path).open("google.com")
+        
 
-        if 'open stackoverflow' in query:
+        elif 'open project' in query:
             chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+            speak("Opening your github sir")
+            webbrowser.get(chrome_path).open("https://github.com")
+
+        
+        elif 'open trello' in query:
+            chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+            speak("Opening your trello board sir")
+            webbrowser.get(chrome_path).open("https://trello.com/shounaksobahani/boards")
+
+
+        
+        elif 'health' in query:
+                text = query
+                res = text.split(' ', 1)[1]
+                url= 'https://www.webmd.com/search/search_results/default.aspx?query='
+                search_url=url+res
+                chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+                speak("Opening WebMd.com")
+                webbrowser.get(chrome_path).open(search_url)
+
+        
+        elif 'buy' in query:
+                text = query
+                res = text.split(' ', 1)[1]
+                url= 'https://www.daraz.com.bd/catalog/?q='
+                search_url=url+res
+                chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+                speak("Opening online shop")
+                webbrowser.get(chrome_path).open(search_url)
+        
+        elif 'research' in query:
+                text = query
+                res = text.split(' ', 1)[1]
+                url= 'https://scholar.google.com/scholar?q='
+                search_url=url+res
+                chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+                speak("Opening Google scholar publications Sir")
+                webbrowser.get(chrome_path).open(search_url)
+
+        elif 'open stackoverflow' in query:
+            chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+            speak("Opening Stack Overflow")
             webbrowser.get(chrome_path).open("stackoverflow.com")
+        
+        elif 'open scholar' in query:
+            chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+            speak("Opening Google Scholar")
+            webbrowser.get(chrome_path).open("https://scholar.google.com")
 
         elif 'google ' in query:
                 text = query
@@ -96,6 +151,7 @@ if __name__ == "__main__":
                 url= 'https://www.google.com/search?q='
                 search_url=url+res
                 chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+                speak("Opening Right away")
                 webbrowser.get(chrome_path).open(search_url)
         
         elif 'youtube ' in query:
@@ -104,15 +160,17 @@ if __name__ == "__main__":
                 url= 'https://www.youtube.com/results?search_query='
                 search_url=url+res
                 chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+                speak("Opening It Sir")
                 webbrowser.get(chrome_path).open(search_url)      
 
-        elif 'play music' in query:
+        elif 'play music' in query or 'play song' in query:
             music_dir = 'E:\\Songs'
             songs = os.listdir(music_dir)
+            speak("Opening Songs")
             print(songs)    
             os.startfile(os.path.join(music_dir, songs[0]))
 
-        elif 'time' in query:
+        elif 'the  time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")    
             speak("Sir, the time is ")
             speak(strTime)
@@ -134,6 +192,7 @@ if __name__ == "__main__":
         
         elif 'open code blocks' in query:
             codebPath = 'C:\\Program Files (x86)\\CodeBlocks\\codeblocks.exe'
+            speak("Opening Codeblocks")
             os.startfile(codebPath)  
                 
         elif 'open Fifa' in query:
@@ -150,7 +209,13 @@ if __name__ == "__main__":
             speak("Your welcome,Sir.")
 
         
-        if 'terminate' in query or 'exit' in query or 'quit' in query or 'your job is done' in query:
+        elif 'news for today' in query:
+            chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+            speak("Opening Daily Star")
+            webbrowser.get(chrome_path).open("https://www.thedailystar.net")
+
+        if 'terminate' in query or 'exit' in query or 'sign off' in query or 'quit' in query or 'your job is done' in query:
+            speak("Signing off Sir!")
             exit()
         
         
