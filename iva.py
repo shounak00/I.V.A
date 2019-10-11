@@ -30,13 +30,15 @@ def speak (audio):
 
 def wishMe():
     hour = int(datetime.datetime.now().hour)
-    if hour>=0 and hour <12:
-        speak("Good Morning!")
+    if hour>=6 and hour <12:
+        speak("Good Morning Sir")
     elif hour>=12 and hour <18:
-        speak("Good Afternoon!")
+        speak("Good Afternoon Sir")
+    elif hour>=18 and hour<21:
+        speak("Good Evening Sir")
     else:
-        speak("Good Evening!")
-    speak("Sir, I am IVA. How can I help you?")   
+        speak("Good Night Sir")
+    speak("I am IVA. How can I help you?")   
 
 def takeCommand():
     #It takes microphone input from the user and returns string output
@@ -63,8 +65,8 @@ def sendEmail(to, content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
-    server.login('al.22.07.96@gmail.com', 'H@R@MJ@D@')
-    server.sendmail('al.22.07.96@gmail.com', to, content)
+    server.login('Yourmail', 'Enter password here')
+    server.sendmail('Yourmail', to, content)
     server.close()
  
 
@@ -83,12 +85,12 @@ if __name__ == "__main__":
             #print(results)
             speak(results) 
 
-        if 'open youtube' in query or 'youtube' in query:
+        if 'open youtube' in query:
             chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
             speak("Opening Youtbe")
             webbrowser.get(chrome_path).open("youtube.com")
 
-        if 'open google' in query or 'google' in query:
+        if 'open google' in query:
             chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
             speak("Opening Google")
             webbrowser.get(chrome_path).open("google.com")
@@ -195,21 +197,22 @@ if __name__ == "__main__":
             speak("Opening Codeblocks")
             os.startfile(codebPath)  
                 
-        elif 'open Fifa' in query:
+        elif 'open fifa' in query:
             codebPath = 'E:\\Fifa19\\FIFA19.exe'
+            speak("Opening Fifa")
             os.startfile(codebPath)  
         
         elif "who are you" in query or "define yourself" in query or "introduce yourself" in query: 
             speak("I am Iva. Your Integrated  Virtual  Assistant, I.V.A. I am here to make your life easier. You can command me to perform various tasks ")
   
         elif "who made you" in query or "created you" in query: 
-            speak("Sir, Stop being stupid! You are presenting me for this project.. Obviously u made me.")
+            speak("Sir, Stop being stupid! Obviously u made me.")
         
         elif "thank you" in query:
             speak("Your welcome,Sir.")
 
         
-        elif 'news for today' in query:
+        elif 'news' in query:
             chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
             speak("Opening Daily Star")
             webbrowser.get(chrome_path).open("https://www.thedailystar.net")
