@@ -12,7 +12,7 @@ import re
 import subprocess
 import json
 import random
-
+import shutil
 
 
 engine = pyttsx3.init('sapi5')
@@ -190,6 +190,34 @@ if __name__ == "__main__":
             except Exception as e:
                 #print(e)
                 speak("Sorry sir, My System failed to complete the task. Please reinitiate instructions again.")
+
+       
+       
+        if 'open code libraries' in query:
+            speak("Code Libraries opened. What you want me to implement?")
+            imp = takeCommand().lower()
+            if 'table' in imp:
+                filename1 = 'F:\\Code Library\\Data Structure\\Sparse_Table.cpp'
+                fileA = open(filename1, 'rb')
+                filename2 = 'C:\\Users\\User\\Desktop\\Coding Ground\\new.cpp'
+                fileB = open(filename2, 'wb')
+                shutil.copyfileobj(fileA, fileB)
+                speak("Sparse table implemented as new.cpp")
+                fileA.close()
+                fileB.close()
+                speak("Do you want me to open it sir?")
+                op = takeCommand().lower()
+                if 'yes' in op:
+                    os.startfile('C:\\Users\\User\\Desktop\\Coding Ground\\new.cpp')
+                if 'no' in op:
+                    speak("exiting code libraries")
+                    exit()
+
+
+            else:
+             speak("Sorry Sir, You haven't manually implemented that library.")
+
+
 
         
         elif 'open code blocks' in query:
