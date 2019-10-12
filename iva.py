@@ -222,8 +222,6 @@ if __name__ == "__main__":
                 if 'table' in imp:
                     filename1 = 'C:\\Users\\User\\Desktop\\I.V.A\\Code Library\\Data Structure\\Sparse_Table.cpp'
                     fileA = open(filename1, 'rb')
-                    path= 'C:\\Users\\User\\Desktop\\I.V.A\\Coding Ground'
-                    os.makedirs(path)
                     filename2 = 'C:\\Users\\User\\Desktop\\I.V.A\\Coding Ground\\implementedsparsetable.cpp'
                     fileB = open(filename2, 'wb')
                     shutil.copyfileobj(fileA, fileB)
@@ -252,7 +250,7 @@ if __name__ == "__main__":
             tmp = takeCommand().lower()
             while True:
                 if 'login' in tmp:
-    
+        
                     speak("Creating CSS style Sheet")
                     fname1 = 'C:\\Users\\User\\Desktop\\I.V.A\\Templates Web\\DemoLoginPage\\css\\style.css'
                     fa = open(fname1,'rb')
@@ -277,6 +275,27 @@ if __name__ == "__main__":
                     op = takeCommand().lower()
                     if 'yes' in op:
                         os.startfile('C:\\Users\\User\\Desktop\\I.V.A\\Coding Ground\\Template Log in\\login.html')
+                        speak("HTML is opened. Exiting Web Template Implementation")
+                        break
+                    if 'no' in op:
+                        speak("Exiting Web Template Implementation")
+                        break
+                
+                if 'resume' in tmp:
+                    speak("Creating HTML")
+                    fname1 ='C:\\Users\\User\\Desktop\\I.V.A\\Templates Web\\Resume\\resume.html'
+                    fa = open(fname1,'rb')
+                    path= 'C:\\Users\\User\\Desktop\\I.V.A\\Coding Ground\\Template Resume'
+                    os.makedirs(path)
+                    fname2 = 'C:\\Users\\User\\Desktop\\I.V.A\\Coding Ground\\Template Resume\\resumetemp.html'
+                    fb= open(fname2, 'wb')
+                    shutil.copyfileobj(fa,fb)
+                    speak("Template Implementation Complete")
+                    fa.close()
+                    fb.close()
+                    op = takeCommand().lower()
+                    if 'yes' in op:
+                        os.startfile('C:\\Users\\User\\Desktop\\I.V.A\\Coding Ground\\Template Resume\\resumetemp.html')
                         speak("HTML is opened. Exiting Web Template Implementation")
                         break
                     if 'no' in op:
