@@ -93,21 +93,17 @@ if __name__ == "__main__":
         if 'open google' in query:
             chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
             speak("Opening Google")
-            webbrowser.get(chrome_path).open("google.com")
-        
+            webbrowser.get(chrome_path).open("google.com")        
 
         elif 'open project' in query:
             chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
             speak("Opening your github sir")
             webbrowser.get(chrome_path).open("https://github.com")
-
         
         elif 'open trello' in query:
             chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
             speak("Opening your trello board sir")
             webbrowser.get(chrome_path).open("https://trello.com/shounaksobahani/boards")
-
-
         
         elif 'health' in query:
                 text = query
@@ -117,8 +113,7 @@ if __name__ == "__main__":
                 chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
                 speak("Opening WebMd.com")
                 webbrowser.get(chrome_path).open(search_url)
-
-        
+      
         elif 'buy' in query:
                 text = query
                 res = text.split(' ', 1)[1]
@@ -165,19 +160,19 @@ if __name__ == "__main__":
                 speak("Opening It Sir")
                 webbrowser.get(chrome_path).open(search_url)      
 
-        elif 'play music' in query or 'play song' in query:
+        if 'play music' in query or 'play song' in query:
             music_dir = 'E:\\Songs'
             songs = os.listdir(music_dir)
             speak("Opening Songs")
             print(songs)    
             os.startfile(os.path.join(music_dir, songs[0]))
 
-        elif 'the  time' in query:
+        if 'the  time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")    
             speak("Sir, the time is ")
             speak(strTime)
         
-        elif 'email' in query or "help me send a mail" in query:
+        if 'email' in query or "help me send a mail" in query:
             try:
                 speak("What should I say?")
                 content = takeCommand().r.pause_threshold=10
@@ -191,56 +186,26 @@ if __name__ == "__main__":
                 #print(e)
                 speak("Sorry sir, My System failed to complete the task. Please reinitiate instructions again.")
 
-       
-       
-        if 'open code libraries' in query:
-            speak("Code Libraries opened. What you want me to implement?")
-            imp = takeCommand().lower()
-            if 'table' in imp:
-                filename1 = 'F:\\Code Library\\Data Structure\\Sparse_Table.cpp'
-                fileA = open(filename1, 'rb')
-                filename2 = 'C:\\Users\\User\\Desktop\\Coding Ground\\new.cpp'
-                fileB = open(filename2, 'wb')
-                shutil.copyfileobj(fileA, fileB)
-                speak("Sparse table implemented as new.cpp")
-                fileA.close()
-                fileB.close()
-                speak("Do you want me to open it sir?")
-                op = takeCommand().lower()
-                if 'yes' in op:
-                    os.startfile('C:\\Users\\User\\Desktop\\Coding Ground\\new.cpp')
-                if 'no' in op:
-                    speak("exiting code libraries")
-                    exit()
-
-
-            else:
-             speak("Sorry Sir, You haven't manually implemented that library.")
-
-
-
-        
-        elif 'open code blocks' in query:
+        if 'open code blocks' in query:
             codebPath = 'C:\\Program Files (x86)\\CodeBlocks\\codeblocks.exe'
             speak("Opening Codeblocks")
             os.startfile(codebPath)  
                 
-        elif 'open fifa' in query:
+        if 'open fifa' in query:
             codebPath = 'E:\\Fifa19\\FIFA19.exe'
             speak("Opening Fifa")
             os.startfile(codebPath)  
         
-        elif "who are you" in query or "define yourself" in query or "introduce yourself" in query: 
+        if "who are you" in query or "define yourself" in query or "introduce yourself" in query: 
             speak("I am Iva. Your Integrated  Virtual  Assistant, I.V.A. I am here to make your life easier. You can command me to perform various tasks ")
   
-        elif "who made you" in query or "created you" in query: 
+        if "who made you" in query or "created you" in query: 
             speak("Sir, Stop being stupid! Obviously u made me.")
         
-        elif "thank you" in query:
+        if "thank you" in query:
             speak("Your welcome,Sir.")
-
         
-        elif 'news' in query:
+        if 'news' in query:
             chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
             speak("Opening Daily Star")
             webbrowser.get(chrome_path).open("https://www.thedailystar.net")
@@ -250,4 +215,82 @@ if __name__ == "__main__":
             exit()
         
         
+        if 'open code libraries' in query:
+            speak("Access Granted on Code Libraries. What do you want me to implement sir?")
+            imp = takeCommand().lower()
+            while True:
+                if 'table' in imp:
+                    filename1 = 'C:\\Users\\User\\Desktop\\I.V.A\\Code Library\\Data Structure\\Sparse_Table.cpp'
+                    fileA = open(filename1, 'rb')
+                    path= 'C:\\Users\\User\\Desktop\\I.V.A\\Coding Ground'
+                    os.makedirs(path)
+                    filename2 = 'C:\\Users\\User\\Desktop\\I.V.A\\Coding Ground\\implementedsparsetable.cpp'
+                    fileB = open(filename2, 'wb')
+                    shutil.copyfileobj(fileA, fileB)
+                    speak("Sparse table implemented")
+                    fileA.close()
+                    fileB.close()
+                    speak("Do you want me to open it sir?")
+                    op = takeCommand().lower()
+                    if 'yes' in op:
+                        os.startfile('C:\\Users\\User\\Desktop\\I.V.A\\Coding Ground\\implementedsparsetable.cpp')
+                        speak("The code is opened. Exiting code libraries")
+                        break
+                    if 'no' in op:
+                        speak("exiting code libraries")
+                        break
+                else:
+                    speak("Sorry Sir, You haven't manually implemented that library.")
+                    speak("exiting code libraries")
+                    break
         
+        
+
+        
+        if 'web template' in query:
+            speak("Access Granted on  Web Templates. What do you want me to implement sir?")
+            tmp = takeCommand().lower()
+            while True:
+                if 'login' in tmp:
+    
+                    speak("Creating CSS style Sheet")
+                    fname1 = 'C:\\Users\\User\\Desktop\\I.V.A\\Templates Web\\DemoLoginPage\\css\\style.css'
+                    fa = open(fname1,'rb')
+                    path= 'C:\\Users\\User\\Desktop\\I.V.A\\Coding Ground\\Template Log in\\css'
+                    os.makedirs(path)
+                    fname2 = 'C:\\Users\\User\\Desktop\\I.V.A\\Coding Ground\\Template Log in\\css\\style.css'
+                    fb = open(fname2,'wb')
+                    shutil.copyfileobj(fa, fb)
+                    fa.close()
+                    fb.close()
+                    
+                    speak("Creating HTML")
+                    fname11 = 'C:\\Users\\User\\Desktop\\I.V.A\\Templates Web\\DemoLoginPage\\index.html'
+                    fa1 = open(fname11,'rb')
+                    fname22 = 'C:\\Users\\User\\Desktop\\I.V.A\\Coding Ground\\Template Log in\\login.html'
+                    fb2 = open(fname22,'wb')
+                    shutil.copyfileobj(fa1, fb2)
+                    speak("Template Implementation Complete")
+                    fa1.close()
+                    fb2.close()
+                    speak("Do you want me to open it sir?")
+                    op = takeCommand().lower()
+                    if 'yes' in op:
+                        os.startfile('C:\\Users\\User\\Desktop\\I.V.A\\Coding Ground\\Template Log in\\login.html')
+                        speak("HTML is opened. Exiting Web Template Implementation")
+                        break
+                    if 'no' in op:
+                        speak("Exiting Web Template Implementation")
+                        break
+                else: 
+                    speak("Sorry Sir, You haven't manually implemented that library.")
+                    speak("Exiting Web Template Implementation")
+                    break
+        
+
+
+        
+
+
+
+       
