@@ -4,12 +4,13 @@
 
 ## Requirements
 
-i) Python and it's libraries.
-ii) Source Code editor (Since it's a console app) 
-ii) Windows 10 x64
+i) Python and it's libraries. <br/>
+ii) Source Code editor (Since it's a console app) <br/>
+ii) Windows 10 x64. <br/>
 
 ## Install Requirements
-  ###Install Python
+### Install Python 
+
   
 
 ## Project Design
