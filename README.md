@@ -30,10 +30,17 @@ vii) Install '**PyAudio**'. Go to **https://www.lfd.uci.edu/~gohlke/pythonlibs/*
 ## Project Design
 
 ## Commands it can execute 
-- "***Wikipedia***" command allows the system to read 3 lines from designated wikipedia page. <br/>
-- "***Tell***" command allows the system to describe basic info about the topic. Ex. "***Tell*** me about Alan Turing". <br/>
+- "***Wikipedia***" command allows the system to read 3 lines from designated wikipedia page.Ex: "***wikipedia*** Alan turing" <br/>
+- "***Tell***" command allows the system to describe basic info about the topic. Ex: "***Tell*** me about Alan Turing". <br/>
 - "***open google***" command allows the system to open google in google chrome (if it's installed). <br/>
 - "***open youtube***" command allows the system to open youtube in google chrome (if it's installed). <br/>
+- "***open Project***" command allows the system to open github in google chrome (if it's installed). <br/>
+- "***open trello***" command allows the system to open trello in google chrome (if it's installed). <br/>
+- "***buy***" command allows the system to open daraz.com in google chrome (if it's installed) so you can buy stuff in online shop. Ex: "***buy*** headphone" <br/>
+
+
+
+
 
 
 
