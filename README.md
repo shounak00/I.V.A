@@ -9,7 +9,12 @@ ii) Source Code editor (Since it's a console app) <br/>
 ii) Windows 10 x64. <br/>
 
 ## Install Requirements
-### Install Python 
+### Install Python
+i) Go to "https://www.python.org/" . Hover over "Downloads" Then Click "Python 3.8.0". (Note: Always download the executable installer) <br/>
+ii) After Downloading Installer. Open it. <br/>
+iii) WHile installing check on **Add Python 3.8 to path** <br/>
+iv) Also adjust system variables. <br/>
+
 
   
 
