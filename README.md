@@ -1,6 +1,6 @@
 # I.V.A
 
-**I**ntegrated **V**oice **A**ssistant or **I.V.A** is a desktop assistant Developed in python. It uses Microsoft Speech API (SAPI5) precisely to perform speech recognition and speech synthesis within Windows. 
+**I**ntegrated **V**oice **A**ssistant or **I.V.A** is a desktop assistant Developed in python. It uses Microsoft Speech API (SAPI5) precisely to perform speech recognition and speech synthesis within Windows. It's a console prototype.  
 
 ## Requirements
 
@@ -12,7 +12,7 @@ ii) Windows 10 x64. <br/>
 ### Install Python
 i) Go to "**https://www.python.org/**". Hover over "Downloads" Then Click "Python 3.8.0". (Note: Always download the executable installer) <br/> <br/>
 ii) After Downloading Installer. Open it. <br/> <br/>
-iii) WHile installing check on **Add Python 3.8 to path** <br/> <br/>
+iii) While installing check on **Add Python 3.8 to path** <br/> <br/>
 iv) Also adjust system variables. <br/><br/>
 
 ### Install Python Libraries
