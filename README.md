@@ -18,8 +18,9 @@ iv) Also adjust system variables. <br/><br/>
 ### Install Python Libraries
 i) Upgrade pip by "python -m pip install --upgrade pip". <br/><br/>
 ii)  Install 'pyttsx3'.<br/>
-- To install it go to cmd. (To open cmd use "windows+r" then type cmd then "Enter") <br/>
-- Then Type "python -m pip install pyttsx3 --user". <br/> <br/>
+  - To install it go to cmd. (To open cmd use "windows+r" then type cmd then "Enter") <br/>
+  - Then Type "python -m pip install pyttsx3 --user". <br/> <br/>
+
 iii) Install SpeechRecognition by using command 'python -m pip install SpeechRecognition --user' <br/><br/>
 iv) Install wikipedia by using command 'python -m pip install wikipedia --user' <br/><br/>
 v) Install google by using command 'python -m pip install google --user'<br/><br/>
